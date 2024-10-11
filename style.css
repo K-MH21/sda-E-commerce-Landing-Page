@@ -102,6 +102,8 @@ body {
   background-color: #f0f0f0;
   padding: 15px;
   border-radius: 5px;
+  position: relative;
+  display: inline-block;
 }
 
 .reviews-section {
@@ -214,4 +216,68 @@ form label {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing {
+  border-right: 2px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 2s steps(56, end), blink 0.75s step-end infinite;
+  font-size: 2.5rem;
+  animation-fill-mode: forwards;
+  margin-bottom: 20px;
+}
+
+.state {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  background-color: rgba(197, 11, 11, 0.7);
+  color: white;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 3px;
+  opacity: 0;
+  animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sliding {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.sliding {
+  overflow: hidden;
+  display: flex;
+  animation: sliding 10s linear infinite;
 }
